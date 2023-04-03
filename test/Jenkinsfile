@@ -1,0 +1,20 @@
+pipeline {
+ agent {
+   node {
+    label 'slave1'
+    customWorkspace '/home/ubuntu/cwt'
+   }
+}
+ stages {
+   stage("command1"){
+     steps {
+        sh '''free -mh '''
+     }
+   }
+   stage("script"){
+     steps {
+        sh '''chmod +x script1.sh && ./script1.sh '''
+     }
+   }
+  }
+}  
